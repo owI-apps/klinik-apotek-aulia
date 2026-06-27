@@ -2,23 +2,14 @@
 // FIREBASE CONFIG (PROJECT BARU)
 // ==========================================
 const firebaseConfig = {
-
-  apiKey: "AIzaSyALaYgptR_MQSVSmQN4ag6ByI5A78SUssA",
-
-  authDomain: "aulia-apotek-klinik-b07f1.firebaseapp.com",
-
-  projectId: "aulia-apotek-klinik-b07f1",
-
-  storageBucket: "aulia-apotek-klinik-b07f1.firebasestorage.app",
-
-  messagingSenderId: "702935233155",
-
-  appId: "1:702935233155:web:f03acb219633ca4df2e1b6",
-
-  measurementId: "G-93Q7J2B077"
-
+  apiKey: "AIzaSyBuGrFicG_55G3pR8UxbaC3PDzbiPFpqV4",
+  authDomain: "klinik-apotek-aulia.firebaseapp.com",
+  projectId: "klinik-apotek-aulia",
+  storageBucket: "klinik-apotek-aulia.firebasestorage.app",
+  messagingSenderId: "24475568497",
+  appId: "1:24475568497:web:247879f6df294a8d8f8ed0",
+  measurementId: "G-H49HZMB39R"
 };
-
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();

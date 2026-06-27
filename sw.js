@@ -1,41 +1,47 @@
 /**
  * Service Worker — Aulia Apotek Klinik
- * Strategi: cache-first untuk shell, stale-while-revalidate untuk asset modul.
  */
+
+// 1. TAMBAHKAN VARIABEL BASE INI
+const BASE_PATH = '/klinik-apotek-aulia/';
+
 const CACHE_NAME = 'aulia-apotek-klinik-v2';
+
+// 2. TAMBAHKAN BASE_PATH DI DEPAN SETIAP URL
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/css/style.css',
-    '/js/app.js',
-    '/js/auth.js',
-    '/js/dashboard.js',
-    '/js/apotek/obat.js',
-    '/js/apotek/transaksi.js',
-    '/js/apotek/pembelian.js',
-    '/js/apotek/stockOpname.js',
-    '/js/klinik/antrian.js',
-    '/js/klinik/pasien.js',
-    '/js/klinik/rekamMedis.js',
-    '/js/klinik/resep.js',
-    '/js/keuangan/akuntansi.js',
-    '/js/keuangan/laporanKeuangan.js',
-    '/js/keuangan/payroll.js',
-    '/js/laporan/hutang.js',
-    '/js/laporan/pengeluaran.js',
-    '/js/laporan/piutang.js',
-    '/js/manajemen/absensi.js',
-    '/js/manajemen/karyawan.js',
-    '/js/pengaturan/gaji.js',
-    '/js/pengaturan/pembagian.js',
-    '/js/pengaturan/profil.js',
-    '/js/pengaturan/tindakan.js',
-    '/js/pengaturan/users.js',
-    '/icon-192.png',
-    '/icon-512.png'
+    BASE_PATH,
+    BASE_PATH + 'index.html',
+    BASE_PATH + 'manifest.json',
+    BASE_PATH + 'css/style.css',
+    BASE_PATH + 'js/app.js',
+    BASE_PATH + 'js/auth.js',
+    BASE_PATH + 'js/dashboard.js',
+    BASE_PATH + 'js/apotek/obat.js',
+    BASE_PATH + 'js/apotek/transaksi.js',
+    BASE_PATH + 'js/apotek/pembelian.js',
+    BASE_PATH + 'js/apotek/stockOpname.js',
+    BASE_PATH + 'js/klinik/antrian.js',
+    BASE_PATH + 'js/klinik/pasien.js',
+    BASE_PATH + 'js/klinik/rekamMedis.js',
+    BASE_PATH + 'js/klinik/resep.js',
+    BASE_PATH + 'js/keuangan/akuntansi.js',
+    BASE_PATH + 'js/keuangan/laporanKeuangan.js',
+    BASE_PATH + 'js/keuangan/payroll.js',
+    BASE_PATH + 'js/laporan/hutang.js',
+    BASE_PATH + 'js/laporan/pengeluaran.js',
+    BASE_PATH + 'js/laporan/piutang.js',
+    BASE_PATH + 'js/manajemen/absensi.js',
+    BASE_PATH + 'js/manajemen/karyawan.js',
+    BASE_PATH + 'js/pengaturan/gaji.js',
+    BASE_PATH + 'js/pengaturan/pembagian.js',
+    BASE_PATH + 'js/pengaturan/profil.js',
+    BASE_PATH + 'js/pengaturan/tindakan.js',
+    BASE_PATH + 'js/pengaturan/users.js',
+    BASE_PATH + 'icon-192.png',
+    BASE_PATH + 'icon-512.png'
 ];
 
+// ... biarkan kode event listener di bawahnya (install, activate, fetch) tetap sama seperti yang sudah saya perbaiki sebelumnya ...
 self.addEventListener('install', function(event) {
     // FIX: jangan telan error addAll, supaya install benar-benar gagal jika cache shell rusak.
     event.waitUntil(
